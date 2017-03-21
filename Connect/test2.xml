@@ -1,0 +1,151 @@
+<?xml version="1.0"?><conf>
+<component>
+	<class>Core.SecurityComponent</class>
+	<id>SecurityComponent</id>
+<ports>
+<port>
+	<class>Core.ConsumingPort</class>
+	<id>SecurityStop</id>
+	<state>false</state>
+</port>
+<port>
+	<class>Core.ConsumingPort</class>
+	<id>SecurityRestart</id>
+	<state>false</state>
+</port>
+</ports>
+</component>
+<component>
+	<class>Basic_Test.TestActorComponent</class>
+	<id>OutputDevice</id>
+<attributes>
+<attribut>
+	<key>t3</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t2</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t1</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t10</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t11</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t12</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t13</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t14</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t15</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t16</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>Test1</key>
+	<value>Boooom</value>
+</attribut>
+<attribut>
+	<key>t4</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t5</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t6</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t7</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t8</key>
+	<value>45654265467</value>
+</attribut>
+<attribut>
+	<key>t9</key>
+	<value>45654265467</value>
+</attribut>
+</attributes>
+<ports>
+<port>
+	<class>Core.ConsumingPort</class>
+	<id>PortX</id>
+	<state>true</state>
+</port>
+<port>
+	<class>Core.ConsumingPort</class>
+	<id>PortY</id>
+	<state>true</state>
+</port>
+<port>
+	<class>Core.ConsumingPort</class>
+	<id>PortZ</id>
+	<state>true</state>
+</port>
+</ports>
+</component>
+<component>
+	<class>Basic_Test.TestSensorComponent</class>
+	<id>InputDevice</id>
+<attributes>
+<attribut>
+	<key>Test-Attribute</key>
+	<value>159.147.2.15</value>
+</attribut>
+<attribut>
+	<key>Test-Attribute2</key>
+	<value>Test</value>
+</attribut>
+</attributes>
+<ports>
+<port>
+	<class>Core.ProducingPort</class>
+	<id>Port1</id>
+	<state>true</state>
+<connectedPorts>
+<connectedPort>
+	<componentId>OutputDevice</componentId>
+	<portId>PortX</portId>
+</connectedPort>
+</connectedPorts>
+</port>
+<port>
+	<class>Core.ProducingPort</class>
+	<id>Port2</id>
+	<state>true</state>
+<connectedPorts>
+<connectedPort>
+	<componentId>OutputDevice</componentId>
+	<portId>PortY</portId>
+</connectedPort>
+<connectedPort>
+	<componentId>OutputDevice</componentId>
+	<portId>PortZ</portId>
+</connectedPort>
+</connectedPorts>
+</port>
+</ports>
+</component>
+</conf>

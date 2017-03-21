@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BCI Framework Control App</string>
+    <string name="action_settings">Settings</string>
+    <string name="ip_hint">Server IP</string>
+    <string name="connect_button_text">Connect</string>
+    <string name="option1">Gyroscope Mode</string>
+    <string name="option2">Button Mode</string>
+    <string name="server_caption">Server IP:</string>
+    <string name="video_caption">Videostream (optional):</string>
+    <string name="title_activity_gyro">BCI Framework Control App - Gyroscope Mode</string>
+    <string name="title_activity_button">BCI Framework Control App - Button Mode</string>
+    <string name="connect_message">Connected</string>
+    <string name="disconnect_message">Disconnected</string>
+
+</resources>

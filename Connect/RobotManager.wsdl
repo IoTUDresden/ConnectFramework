@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://server.soap.service.turtlebot.vicci.eu" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://server.soap.service.turtlebot.vicci.eu" xmlns:intf="http://server.soap.service.turtlebot.vicci.eu" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://server.soap.service.turtlebot.vicci.eu" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="goTo">
+    <complexType>
+     <sequence>
+      <element name="x" type="xsd:float"/>
+      <element name="y" type="xsd:float"/>
+      <element name="o_z" type="xsd:float"/>
+      <element name="o_w" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="goToResponse">
+    <complexType>
+     <sequence>
+      <element name="goToReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addLocation">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+      <element name="x" type="xsd:float"/>
+      <element name="y" type="xsd:float"/>
+      <element name="o_z" type="xsd:float"/>
+      <element name="o_w" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addLocationResponse">
+    <complexType/>
+   </element>
+   <element name="getIP_Port">
+    <complexType/>
+   </element>
+   <element name="getIP_PortResponse">
+    <complexType>
+     <sequence>
+      <element name="getIP_PortReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="databaseContains">
+    <complexType>
+     <sequence>
+      <element name="x" type="xsd:float"/>
+      <element name="y" type="xsd:float"/>
+      <element name="o_z" type="xsd:float"/>
+      <element name="o_w" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="databaseContainsResponse">
+    <complexType>
+     <sequence>
+      <element name="databaseContainsReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="serviceCall">
+    <complexType>
+     <sequence>
+      <element name="service_name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="serviceCallResponse">
+    <complexType>
+     <sequence>
+      <element name="serviceCallReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="dockOut">
+    <complexType/>
+   </element>
+   <element name="dockOutResponse">
+    <complexType>
+     <sequence>
+      <element name="dockOutReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCurrentPosition">
+    <complexType/>
+   </element>
+   <element name="getCurrentPositionResponse">
+    <complexType>
+     <sequence>
+      <element name="getCurrentPositionReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="autoDock">
+    <complexType/>
+   </element>
+   <element name="autoDockResponse">
+    <complexType>
+     <sequence>
+      <element name="autoDockReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDockCoordinates">
+    <complexType/>
+   </element>
+   <element name="getDockCoordinatesResponse">
+    <complexType>
+     <sequence>
+      <element name="getDockCoordinatesReturn" type="impl:Coordinates"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Coordinates">
+    <sequence>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="o_w" type="xsd:float"/>
+     <element name="o_z" type="xsd:float"/>
+     <element name="x" type="xsd:float"/>
+     <element name="y" type="xsd:float"/>
+    </sequence>
+   </complexType>
+   <element name="setDockCoordinates">
+    <complexType>
+     <sequence>
+      <element name="x" type="xsd:float"/>
+      <element name="y" type="xsd:float"/>
+      <element name="o_z" type="xsd:float"/>
+      <element name="o_w" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setDockCoordinatesResponse">
+    <complexType>
+     <sequence>
+      <element name="setDockCoordinatesReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllLocations">
+    <complexType/>
+   </element>
+   <element name="getAllLocationsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getAllLocationsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllCoordinates">
+    <complexType/>
+   </element>
+   <element name="getAllCoordinatesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getAllCoordinatesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeCoordinates">
+    <complexType>
+     <sequence>
+      <element name="location" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeCoordinatesResponse">
+    <complexType/>
+   </element>
+   <element name="setIP_Port">
+    <complexType>
+     <sequence>
+      <element name="ip" type="xsd:string"/>
+      <element name="port" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setIP_PortResponse">
+    <complexType>
+     <sequence>
+      <element name="setIP_PortReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="moveTo">
+    <complexType>
+     <sequence>
+      <element name="location" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="moveToResponse">
+    <complexType>
+     <sequence>
+      <element name="moveToReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="serviceCallRequest">
+
+      <wsdl:part element="impl:serviceCall" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="autoDockResponse">
+
+      <wsdl:part element="impl:autoDockResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dockOutResponse">
+
+      <wsdl:part element="impl:dockOutResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="databaseContainsRequest">
+
+      <wsdl:part element="impl:databaseContains" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDockCoordinatesResponse">
+
+      <wsdl:part element="impl:getDockCoordinatesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setIP_PortRequest">
+
+      <wsdl:part element="impl:setIP_Port" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCurrentPositionResponse">
+
+      <wsdl:part element="impl:getCurrentPositionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCoordinatesResponse">
+
+      <wsdl:part element="impl:removeCoordinatesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllCoordinatesResponse">
+
+      <wsdl:part element="impl:getAllCoordinatesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="moveToResponse">
+
+      <wsdl:part element="impl:moveToResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="databaseContainsResponse">
+
+      <wsdl:part element="impl:databaseContainsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCoordinatesRequest">
+
+      <wsdl:part element="impl:removeCoordinates" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="dockOutRequest">
+
+      <wsdl:part element="impl:dockOut" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="serviceCallResponse">
+
+      <wsdl:part element="impl:serviceCallResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setDockCoordinatesRequest">
+
+      <wsdl:part element="impl:setDockCoordinates" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="autoDockRequest">
+
+      <wsdl:part element="impl:autoDock" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addLocationResponse">
+
+      <wsdl:part element="impl:addLocationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllLocationsRequest">
+
+      <wsdl:part element="impl:getAllLocations" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDockCoordinatesRequest">
+
+      <wsdl:part element="impl:getDockCoordinates" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="moveToRequest">
+
+      <wsdl:part element="impl:moveTo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCurrentPositionRequest">
+
+      <wsdl:part element="impl:getCurrentPosition" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="goToRequest">
+
+      <wsdl:part element="impl:goTo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllLocationsResponse">
+
+      <wsdl:part element="impl:getAllLocationsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllCoordinatesRequest">
+
+      <wsdl:part element="impl:getAllCoordinates" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addLocationRequest">
+
+      <wsdl:part element="impl:addLocation" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setDockCoordinatesResponse">
+
+      <wsdl:part element="impl:setDockCoordinatesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIP_PortResponse">
+
+      <wsdl:part element="impl:getIP_PortResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setIP_PortResponse">
+
+      <wsdl:part element="impl:setIP_PortResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="goToResponse">
+
+      <wsdl:part element="impl:goToResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getIP_PortRequest">
+
+      <wsdl:part element="impl:getIP_Port" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="RobotManager">
+
+      <wsdl:operation name="goTo">
+
+         <wsdl:input message="impl:goToRequest" name="goToRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:goToResponse" name="goToResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addLocation">
+
+         <wsdl:input message="impl:addLocationRequest" name="addLocationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addLocationResponse" name="addLocationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getIP_Port">
+
+         <wsdl:input message="impl:getIP_PortRequest" name="getIP_PortRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getIP_PortResponse" name="getIP_PortResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="databaseContains">
+
+         <wsdl:input message="impl:databaseContainsRequest" name="databaseContainsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:databaseContainsResponse" name="databaseContainsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="serviceCall">
+
+         <wsdl:input message="impl:serviceCallRequest" name="serviceCallRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:serviceCallResponse" name="serviceCallResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dockOut">
+
+         <wsdl:input message="impl:dockOutRequest" name="dockOutRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:dockOutResponse" name="dockOutResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCurrentPosition">
+
+         <wsdl:input message="impl:getCurrentPositionRequest" name="getCurrentPositionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCurrentPositionResponse" name="getCurrentPositionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="autoDock">
+
+         <wsdl:input message="impl:autoDockRequest" name="autoDockRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:autoDockResponse" name="autoDockResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDockCoordinates">
+
+         <wsdl:input message="impl:getDockCoordinatesRequest" name="getDockCoordinatesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getDockCoordinatesResponse" name="getDockCoordinatesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setDockCoordinates">
+
+         <wsdl:input message="impl:setDockCoordinatesRequest" name="setDockCoordinatesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setDockCoordinatesResponse" name="setDockCoordinatesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllLocations">
+
+         <wsdl:input message="impl:getAllLocationsRequest" name="getAllLocationsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllLocationsResponse" name="getAllLocationsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllCoordinates">
+
+         <wsdl:input message="impl:getAllCoordinatesRequest" name="getAllCoordinatesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllCoordinatesResponse" name="getAllCoordinatesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCoordinates">
+
+         <wsdl:input message="impl:removeCoordinatesRequest" name="removeCoordinatesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeCoordinatesResponse" name="removeCoordinatesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setIP_Port">
+
+         <wsdl:input message="impl:setIP_PortRequest" name="setIP_PortRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setIP_PortResponse" name="setIP_PortResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="moveTo">
+
+         <wsdl:input message="impl:moveToRequest" name="moveToRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:moveToResponse" name="moveToResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="RobotManagerSoapBinding" type="impl:RobotManager">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="goTo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="goToRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="goToResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addLocation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addLocationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addLocationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getIP_Port">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getIP_PortRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getIP_PortResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="databaseContains">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="databaseContainsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="databaseContainsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="serviceCall">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="serviceCallRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="serviceCallResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="dockOut">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="dockOutRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="dockOutResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCurrentPosition">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCurrentPositionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCurrentPositionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="autoDock">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="autoDockRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="autoDockResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDockCoordinates">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDockCoordinatesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDockCoordinatesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setDockCoordinates">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setDockCoordinatesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setDockCoordinatesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllLocations">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllLocationsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllLocationsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllCoordinates">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllCoordinatesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllCoordinatesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCoordinates">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeCoordinatesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeCoordinatesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setIP_Port">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setIP_PortRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setIP_PortResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="moveTo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="moveToRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="moveToResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="RobotManagerService">
+
+      <wsdl:port binding="impl:RobotManagerSoapBinding" name="RobotManager">
+
+         <wsdlsoap:address location="http://localhost:8080/eu.vicci.turtlebot.service.soap.server/services/RobotManager"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://DefaultNamespace" xmlns:intf="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://DefaultNamespace" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="changeLight1">
+    <complexType/>
+   </element>
+   <element name="changeLight1Response">
+    <complexType/>
+   </element>
+   <element name="changeLight2">
+    <complexType/>
+   </element>
+   <element name="changeLight2Response">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="changeLight2Request">
+
+      <wsdl:part element="impl:changeLight2" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="changeLight1Response">
+
+      <wsdl:part element="impl:changeLight1Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="changeLight2Response">
+
+      <wsdl:part element="impl:changeLight2Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="changeLight1Request">
+
+      <wsdl:part element="impl:changeLight1" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="LightManager">
+
+      <wsdl:operation name="changeLight1">
+
+         <wsdl:input message="impl:changeLight1Request" name="changeLight1Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:changeLight1Response" name="changeLight1Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changeLight2">
+
+         <wsdl:input message="impl:changeLight2Request" name="changeLight2Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:changeLight2Response" name="changeLight2Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="LightManagerSoapBinding" type="impl:LightManager">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="changeLight1">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="changeLight1Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="changeLight1Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changeLight2">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="changeLight2Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="changeLight2Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="LightManagerService">
+
+      <wsdl:port binding="impl:LightManagerSoapBinding" name="LightManager">
+
+         <wsdlsoap:address location="http://localhost:8080/WebService_Test_Light/services/LightManager"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

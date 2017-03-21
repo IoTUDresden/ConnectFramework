@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="eu.vicci.bciframework.controlapp.GyroActivity" >
+
+    <!-- 
+   	<eu.vicci.bciframework.controlapp.view.WebcamView
+        android:id="@+id/webcam_stream_view"
+        android:layout_width="640dp"
+        android:layout_height="480dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"/> -->
+   	
+    <ImageView android:id="@+id/middlebutton"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/gyro"
+        android:contentDescription="@null"/>    
+    
+    <ImageView android:id="@+id/button_down"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/middlebutton"
+        android:layout_alignLeft="@id/middlebutton"
+        android:src="@drawable/unten_g" 
+        android:contentDescription="@null"/>
+
+    <ImageView android:id="@+id/button_right"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignBottom="@id/middlebutton"
+        android:layout_toRightOf="@id/middlebutton"
+        android:src="@drawable/rechts_g" 
+        android:contentDescription="@null"/>
+        
+    <ImageView android:id="@+id/button_left"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignBottom="@id/middlebutton"
+        android:layout_toLeftOf="@id/middlebutton"
+        android:src="@drawable/links_g"
+        android:contentDescription="@null"/>
+            
+    <ImageView android:id="@+id/button_up"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@id/middlebutton"
+        android:layout_alignLeft="@id/middlebutton"
+        android:src="@drawable/oben_g" 
+        android:contentDescription="@null"/>
+           
+</RelativeLayout>
