@@ -1,7 +1,10 @@
 # ConnectFramework
 
 See the following publication for more detail:
+
 Seiger, R., Niebling, F., Korzetz, M., Nicolai, T., & Schlegel, T. (2015). A Framework for Rapid Prototyping of Multimodal Interaction Concepts. In LMIS@ EICS (pp. 21-28).
+
+Seiger, R., Nicolai, T., & Schlegel, T. (2014, September). A Framework for Controlling Robots via Brain-Computer Interfaces. In Mensch & Computer Workshopband (pp. 3-6).
 
 Hints:
 - This framework is not maintained anymore.
